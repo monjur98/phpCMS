@@ -22,6 +22,7 @@
                 $post_author = $row['post_author'];
                 $post_date = $row['post_date'];
                 $post_image = $row['post_image'];
+                $post_tags = $row['post_tags'];
                 $post_content = $row['post_content'];
             ?>
             <div class="col-md-6 mb-4">
@@ -34,7 +35,10 @@
                   </div>
                 </a>
                 <div class="card-body px-0 pb-0">
-                  <u>By- <?php echo $post_author ?></u>
+                  <ul class="post-meta mb-2">
+                    <li><a href="javascript:void(0);"><?php echo $post_tags ?></a></li>
+                  </ul>
+                  <u><b>By:</b> <?php echo $post_author ?></u>
                   <h2><a class="post-title" href="javascript:void(0)"><?php echo $post_title ?></a></h2>
                   <div class="content"> <a class="read-more-btn" href="article.html">Read Full Article</a>
                   </div>

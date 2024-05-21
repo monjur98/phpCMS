@@ -17,8 +17,7 @@
             </div>
         </div>
     </div>
-    <div class="copyright bg-dark content">Designed &amp; Developed By <a
-            href="https://themefisher.com/">Themefisher</a>
+    <div class="copyright bg-dark content">&copy; <script>document.write(new Date().getFullYear())</script> Reporter
     </div>
 </footer>
 
