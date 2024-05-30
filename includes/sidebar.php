@@ -12,9 +12,10 @@ $select_all_categories_query = mysqli_query($connection,$query);
                         <ul class="widget-list">
                             <?php
                             while($row = mysqli_fetch_assoc($select_all_categories_query)){
+                                $cat_id = $row['cat_id'];
                                 $cat_title = $row['cat_title'];
                             ?>
-                            <li><a href="javascript:void(0);"><?php echo $cat_title ?></a></li>
+                            <li><a href="category.php?category=<?php echo base64_encode($cat_id) ?>"><?php echo $cat_title ?></a></li>
                             <?php } ?>
                         </ul>
                     </div>

@@ -52,7 +52,7 @@
 
         confirmQuery($update_post);
 
-        header("Location: posts.php");
+        header("Location: post.php");
     }
 ?>
 
@@ -66,16 +66,19 @@
         <div class="col-lg-4 mb-3">
             <label for="" class="form-label">Category</label>
             <select name="post_category" class="form-select">
+                <option value="">Select Category</option>
                 <?php
-                $query = "SELECT * FROM categories";
-                $select_categories = mysqli_query($connection,$query);
-                confirmQuery($select_categories);                
-                while($row = mysqli_fetch_assoc($select_categories)){
-                    $cat_id = $row['cat_id'];
-                    $cat_title = $row['cat_title'];
-                    echo "<option value='{$cat_id}'>{$cat_title}</option>";
-                }
-            ?>
+                    $query = "SELECT * FROM users";
+                    $select_users = mysqli_query($connection,$query);
+
+                    confirmQuery($select_users);
+
+                    while($row = mysqli_fetch_assoc($select_users)){
+                        $user_id = $row['user_id'];
+                        $user_role = $row['user_role'];
+                        echo "<option value='{$user_id}'>{$user_role}</option>";
+                    }
+                ?>
             </select>
         </div>
         <div class="col-lg-4 mb-3">

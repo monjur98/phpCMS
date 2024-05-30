@@ -3,11 +3,11 @@
         <h5 class="card-title">Post List</h5>
     </div>
     <div class="col-lg-6 text-end">
-        <a href="post.php?source=add_post" class="btn btn-primary my-3">Add New Post</a>
+        <a href="posts.php?source=add_post" class="btn btn-primary my-3">Add New Post</a>
     </div>
 </div>
 <div class="table-responsive">
-    <table class="table table-bordered table-sm table-hover border-primary">
+    <table class="table table-bordered table-sm table-hover mb-0">
         <thead>
             <tr>
                 <th scope="col">ID</th>
@@ -17,7 +17,7 @@
                 <th scope="col">Status</th>
                 <th scope="col">Image</th>
                 <th scope="col">Tags</th>
-                <th scope="col">Comment</th>
+                <th scope="col">Comments</th>
                 <th scope="col">Date</th>
                 <th scope="col" style="width: 80px">Action</th>
             </tr>
@@ -34,7 +34,7 @@
                     $post_status = $row['post_status'];                                        
                     $post_image = $row['post_image'];
                     $post_tags = $row['post_tags'];
-                    $post_content = $row['post_content'];
+                    $post_content = substr($row['post_content'], 0, 80);
                     $post_comment_count = $row['post_comment_count'];
                     $post_date = $row['post_date'];                
             ?>
@@ -54,14 +54,14 @@
                 <td><img class="rounded" width="80px" src="../images/post/<?php echo $post_image ;?>"
                         alt="<?php echo $post_title ;?>"></td>
                 <td><?php echo $post_tags ;?></td>
-                <td><?php echo $post_content ;?></td>
+                <td><?php echo $post_comment_count ;?></td>
                 <td><span class="badge text-bg-success bg-opacity-25 text-success"><?php echo $post_date ;?></span></td>
                 <td>
                     <a class="text-warning mx-1"
-                        href="post.php?source=edit_post&p_id=<?php echo base64_encode($post_id) ?>">
+                        href="posts.php?source=edit_post&p_id=<?php echo base64_encode($post_id) ?>">
                         <i class="bi bi-pencil-square"></i>
                     </a>
-                    <a class="text-danger mx-1" href="post.php?delete=<?php echo $post_id ?>">
+                    <a class="text-danger mx-1" href="posts.php?delete=<?php echo $post_id ?>">
                         <i class="bi bi-trash"></i>
                     </a>
                 </td>
@@ -76,7 +76,7 @@
         $query = "DELETE FROM posts WHERE post_id = {$the_delete_id}";
         $delete_post_query = mysqli_query($connection, $query);
         confirmQuery($delete_post_query);
-        header("Location: post.php");
+        header("Location: posts.php");
     }
     
     ?>

@@ -79,12 +79,12 @@
             </a>
             <ul id="posts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="post.php">
+                    <a href="posts.php">
                         <i class="bi bi-circle"></i><span>View all posts</span>
                     </a>
                 </li>
                 <li>
-                    <a href="post.php?source=add_post">
+                    <a href="posts.php?source=add_post">
                         <i class="bi bi-circle"></i><span>Add post</span>
                     </a>
                 </li>
@@ -101,7 +101,7 @@
         <!-- End Categories Page Nav -->
 
         <li class="nav-item">
-            <a class="nav-link collapsed" href="#">
+            <a class="nav-link collapsed" href="comments.php">
                 <i class="bi bi-chat-left-text"></i>
                 <span>Comments</span>
             </a>
@@ -114,13 +114,13 @@
             </a>
             <ul id="users-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="#">
-                        <i class="bi bi-circle"></i><span>Dropdown</span>
+                    <a href="users.php">
+                        <i class="bi bi-circle"></i><span>View all Users</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
-                        <i class="bi bi-circle"></i><span>Dropdown</span>
+                    <a href="users.php?source=add_user">
+                        <i class="bi bi-circle"></i><span>Add Users</span>
                     </a>
                 </li>
             </ul>

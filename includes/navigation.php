@@ -28,15 +28,16 @@ $select_all_categories_query = mysqli_query($connection,$query);
                         <div class="dropdown-menu">
                             <?php
                             while($row = mysqli_fetch_assoc($select_all_categories_query)){
+                                $cat_id = $row['cat_id'];
                                 $cat_title = $row['cat_title'];
                             ?>
-                            <a class="dropdown-item" href="javascript:void(0);"><?php echo $cat_title ?></a>
+                            <a class="dropdown-item" href="category.php?category=<?php echo base64_encode($cat_id) ?>"><?php echo $cat_title ?></a>
                             <?php } ?>
                         </div>
                     </li>
                     <li class="nav-item"> <a class="nav-link" href="javascript:void(0);">Contact</a>
                     </li>
-                    <li class="nav-item"> <a class="nav-link" href="admin"><i class='bx bx-log-in-circle'></i> Admin</a>
+                    <li class="nav-item"> <a class="nav-link" href="admin"><i class='bx bx-log-in-circle'></i> Admin Login</a>
                     </li>
                 </ul>
             </div>

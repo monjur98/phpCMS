@@ -57,7 +57,7 @@ $select_all_categories_query = mysqli_query($connection,$query);
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Category List</h5>
-                        <table class="table table-sm table-hover border-primary">
+                        <table class="table table-sm table-hover">
                             <thead>
                                 <tr>
                                     <th scope="col">ID</th>

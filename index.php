@@ -15,19 +15,23 @@
               <h2 class="section-title">Latest Articles</h2>
             </div>
             <?php 
-              $quiry = "SELECT * FROM posts";
-              $select_all_posts_quiry = mysqli_query($connection,$quiry);
-              while($row = mysqli_fetch_assoc($select_all_posts_quiry)){
+              $query = "SELECT * FROM posts";
+              $select_all_posts_query = mysqli_query($connection,$query);
+              while($row = mysqli_fetch_assoc($select_all_posts_query)){
+                $post_id = $row['post_id'];
                 $post_title = $row['post_title'];
                 $post_author = $row['post_author'];
                 $post_date = $row['post_date'];
                 $post_image = $row['post_image'];
                 $post_tags = $row['post_tags'];
-                $post_content = $row['post_content'];
+                $post_content = substr($row['post_content'], 0, 100);
+                $post_status = $row['post_status'];
+
+                if($post_status === 'published'){             
             ?>
             <div class="col-md-6 mb-4">
               <article class="card article-card article-card-sm h-100">
-                <a href="article.html">
+                <a href="post.php?p_id=<?php echo base64_encode($post_id) ?>">
                   <div class="card-image">
                     <div class="post-info"> <span class="text-uppercase"><?php echo $post_date ?></span></div>
                     <img loading="lazy" decoding="async" src="images/post/<?php echo $post_image ?>"
@@ -39,13 +43,16 @@
                     <li><a href="javascript:void(0);"><?php echo $post_tags ?></a></li>
                   </ul>
                   <u><b>By:</b> <?php echo $post_author ?></u>
-                  <h2><a class="post-title" href="javascript:void(0)"><?php echo $post_title ?></a></h2>
-                  <div class="content"> <a class="read-more-btn" href="article.html">Read Full Article</a>
+                  <h2><a class="post-title"
+                      href="post.php?p_id=<?php echo base64_encode($post_id) ?>"><?php echo $post_title ?></a></h2>
+                  <p class="card-text"><?php echo $post_content ?>...</p>
+                  <div class="content"> <a class="read-more-btn"
+                      href="post.php?p_id=<?php echo base64_encode($post_id) ?>">Read Full Article</a>
                   </div>
                 </div>
               </article>
             </div>
-            <?php } ?>
+            <?php }} ?>
           </div>
         </div>
         <!-- Sidebar -->
@@ -56,5 +63,5 @@
 </main>
 
 <?php
-include "includes/footer.php"
+include "includes/footer.php";
 ?>
